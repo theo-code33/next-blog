@@ -1,3 +1,5 @@
+import styles from "../../app/page.module.css";
+
 const fetchAllPosts = async () => {
   const response = await fetch("http://localhost:3000/api/posts");
   const responseJson = await response.json();
@@ -10,7 +12,7 @@ const PostsList = async () => {
     <>
       {postList.map((post: any) => {
         return (
-          <div key={post.id}>
+          <div key={post.id} className={styles.post_card}>
             <h2>{post.title}</h2>
             <p>{post.content}</p>
             <hr />

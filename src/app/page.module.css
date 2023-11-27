@@ -202,6 +202,18 @@
   }
 }
 
+.post_card{
+  background-color: red;
+  color: white;
+  transform: rotate(5deg) translateX(100px);
+  transition: all 0.5s ease-in-out;
+}
+
+.post_card:hover{
+  background-color: blue;
+  transform: rotate(-509deg) translateX(-30px) scale(200%);
+}
+
 /* Tablet and Smaller Desktop */
 @media (min-width: 701px) and (max-width: 1120px) {
   .grid {
@@ -225,5 +237,15 @@
   }
   to {
     transform: rotate(0deg);
+  }
+}
+
+
+@keyframes scaleToTheSky {
+  from {
+    transform: scale(1);
+  }
+  to {
+    transform: scale(10000000%);
   }
 }

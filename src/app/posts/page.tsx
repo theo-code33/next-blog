@@ -3,8 +3,21 @@ import { GetServerSideProps } from "next";
 
 const PostListPage = () => {
   return (
-    <div>
-      <h1>Post List Page</h1>
+    <div
+      style={{
+        height: "100vh",
+        display: "flex",
+        flexDirection: "column",
+        justifyContent: "center",
+      }}
+    >
+      <h1
+        style={{
+          marginBottom: "100px",
+        }}
+      >
+        Post List Page
+      </h1>
       <PostsList />
     </div>
   );
