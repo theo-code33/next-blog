@@ -8,17 +8,22 @@ const fetchAllPosts = async () => {
 
 const PostsList = async () => {
   const postList = await fetchAllPosts();
+
   return (
     <>
-      {postList.map((post: any) => {
-        return (
-          <div key={post.id} className={styles.post_card}>
-            <h2>{post.title}</h2>
-            <p>{post.content}</p>
-            <hr />
-          </div>
-        );
-      })}
+      {postList.length > 0 ? (
+        postList.map((post: any) => {
+          return (
+            <div key={post.id} className={styles.post_card}>
+              <h2>{post.title}</h2>
+              <p>{post.content}</p>
+              <hr />
+            </div>
+          );
+        })
+      ) : (
+        <p>No posts found</p>
+      )}
     </>
   );
 };

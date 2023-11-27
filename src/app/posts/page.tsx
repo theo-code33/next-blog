@@ -1,5 +1,5 @@
+"use client";
 import PostsList from "@/components/posts/PostsList";
-import { GetServerSideProps } from "next";
 
 const PostListPage = () => {
   return (
@@ -8,16 +8,10 @@ const PostListPage = () => {
         height: "100vh",
         display: "flex",
         flexDirection: "column",
+        alignItems: "center",
         justifyContent: "center",
       }}
     >
-      <h1
-        style={{
-          marginBottom: "100px",
-        }}
-      >
-        Post List Page
-      </h1>
       <PostsList />
     </div>
   );
