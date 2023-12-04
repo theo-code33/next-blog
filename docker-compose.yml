@@ -6,6 +6,7 @@ services:
       POSTGRES_PASSWORD: ${NEXT_POSTGRES_PASSWORD}
       POSTGRES_USER: ${NEXT_POSTGRES_USER}
       POSTGRES_DB: ${NEXT_POSTGRES_DB}
+      PGDATA: /var/lib/postgresql/data
     ports: 
       - 5432:5432
     volumes:

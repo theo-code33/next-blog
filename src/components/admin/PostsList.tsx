@@ -10,7 +10,9 @@ import { Post } from "@prisma/client";
 import { IconPencil } from "@tabler/icons-react";
 
 const fetchAllPosts = async () => {
-  const response = await fetch("http://localhost:3000/api/posts");
+  const response = await fetch("http://localhost:3000/api/posts", {
+    cache: "no-cache",
+  });
   const responseJson = await response.json();
   return responseJson.data;
 };

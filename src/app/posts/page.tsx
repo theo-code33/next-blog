@@ -1,4 +1,3 @@
-"use client";
 import PostsList from "@/components/posts/PostsList";
 
 const PostListPage = () => {

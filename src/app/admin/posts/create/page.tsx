@@ -1,9 +1,10 @@
 import PostForm from "@/components/admin/PostForm";
-import { Input, Textarea } from "@nextui-org/input";
-import { Category, Post } from "@prisma/client";
+import { Category } from "@prisma/client";
 
 const fetchAllCategories = async () => {
-  const response = await fetch("http://localhost:3000/api/categories");
+  const response = await fetch("http://localhost:3000/api/categories", {
+    cache: "no-cache",
+  });
   const responseJson = await response.json();
   return responseJson.data;
 };

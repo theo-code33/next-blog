@@ -16,11 +16,6 @@ const PostForm = ({ categories }: { categories: Category[] }) => {
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
-    console.log((form.title as any).value);
-    console.log(form.content.value);
-    console.log(
-      categories && categories.length > 0 && form.category ? true : false
-    );
 
     const post: Omit<Post, "id" | "createdAt"> = {
       title: (form.title as any).value as string,
