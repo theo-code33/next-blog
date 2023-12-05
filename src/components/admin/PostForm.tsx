@@ -2,6 +2,7 @@
 import { Category, Post } from "@prisma/client";
 import { Input, Textarea } from "@nextui-org/input";
 import { Button, Select, SelectItem } from "@nextui-org/react";
+import { useRouter } from "next/navigation";
 
 const createPost = async (post: Omit<Post, "id" | "createdAt">) => {
   const response = await fetch("http://localhost:3000/api/posts", {
@@ -13,6 +14,7 @@ const createPost = async (post: Omit<Post, "id" | "createdAt">) => {
 };
 
 const PostForm = ({ categories }: { categories: Category[] }) => {
+  const router = useRouter();
   const handleSubmit = async (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
     const form = event.target as HTMLFormElement;
@@ -28,6 +30,7 @@ const PostForm = ({ categories }: { categories: Category[] }) => {
     try {
       createPost(post).then(() => {
         form.reset();
+        router.push("/admin");
       });
     } catch (error) {
       console.log(error);

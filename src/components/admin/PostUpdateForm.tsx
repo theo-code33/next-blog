@@ -74,7 +74,7 @@ const PostUpdateForm = ({
           })}
         </Select>
       )}
-      <Button type="submit">Créer !</Button>
+      <Button type="submit">Modifier !</Button>
     </form>
   );
 };

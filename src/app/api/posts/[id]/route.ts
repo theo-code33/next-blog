@@ -33,25 +33,34 @@ export async function PUT(request: NextRequest) {
   const body = await request.json();
   if (!body) throw { code: 400, message: "No data provided" };
 
-  // const href = request.nextUrl.href.split("/");
-  // const id = href[href.length - 1];
+  const href = request.nextUrl.href.split("/");
+  const id = href[href.length - 1];
+  delete body.id;
+
+  if (body.categoryId) {
+    body.category = body.categoryId;
+    delete body.categoryId;
+  } else {
+    delete body.categoryId;
+  }
+  if (!body.category) delete body.category;
 
   try {
-    const post = await prisma.post.update({
-      where: {
-        id: body.id,
-      },
-      data: body,
-    });
-
-    if (!post) throw { code: 404, message: "Post not found" };
-
-    console.log(post);
-
-    return NextResponse.json({
-      status: 200,
-      data: post,
-    });
+    return prisma.post
+      .update({
+        where: {
+          id: +id,
+        },
+        data: body,
+      })
+      .then((res) => {
+        console.log(res);
+        if (!res) throw { code: 404, message: "Post not found" };
+        return NextResponse.json({
+          status: 200,
+          data: res,
+        });
+      });
   } catch (error: any) {
     return NextResponse.json({
       status: error.code || 500,

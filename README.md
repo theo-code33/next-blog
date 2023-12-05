@@ -1,3 +1,12 @@
+## How to use
+
+Run the following commands to start the project
+
+```bash
+npm install
+make start
+```
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started

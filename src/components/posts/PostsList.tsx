@@ -1,5 +1,13 @@
 import { Post } from "@prisma/client";
 import styles from "../../app/page.module.css";
+import {
+  Card,
+  CardBody,
+  CardFooter,
+  CardHeader,
+  Divider,
+  Link,
+} from "@nextui-org/react";
 
 const fetchAllPosts = async () => {
   try {
@@ -22,12 +30,23 @@ const PostsList = async () => {
       {postList.length > 0 ? (
         postList.map((post) => {
           return (
-            <div key={post.id} className={styles.post_card}>
-              <h2>{post.title}</h2>
-              <p>{post.content}</p>
-              <a href={`/${post.id}`}>Lire plus</a>
-              <hr />
-            </div>
+            <Card
+              key={post.id}
+              style={{
+                width: "300px",
+              }}
+            >
+              <CardHeader>
+                <p className="text-lg font-semibold">{post.title}</p>
+              </CardHeader>
+              <Divider />
+              <CardBody>
+                <p className="text-sm">{post.content}</p>
+              </CardBody>
+              <CardFooter>
+                <Link href={`/posts/${post.id}`}>Lire plus</Link>
+              </CardFooter>
+            </Card>
           );
         })
       ) : (
